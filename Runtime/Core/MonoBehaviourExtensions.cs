@@ -79,7 +79,7 @@ namespace Codetox.Core
             return mono.DirectionFrom(gameObject.transform);
         }
 
-        public static bool IsLayerInLayerMask(int layer, LayerMask layerMask)
+        public static bool IsLayerInLayerMask(this MonoBehaviour mono, int layer, LayerMask layerMask)
         {
             return layerMask == (layerMask | (1 << layer));
         }

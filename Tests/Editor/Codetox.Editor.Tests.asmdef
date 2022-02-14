@@ -1,8 +1,16 @@
 {
-    "name": "Codetox",
+    "name": "Codetox.Editor.Tests",
     "rootNamespace": "",
-    "references": [],
-    "includePlatforms": [],
+    "references": [
+        "Codetox.Editor",
+        "Codetox"
+    ],
+    "optionalUnityReferences": [
+        "TestAssemblies"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
     "overrideReferences": false,
