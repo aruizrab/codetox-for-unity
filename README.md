@@ -1,6 +1,12 @@
 # Codetox for Unity
 Codetox is a general purpose script library to make your life easier.
 
+## Quick install
+To start using **Codetox** in your Unity project go to your package manager, click on [add package from git URL](https://docs.unity3d.com/2021.2/Documentation/Manual/upm-ui-giturl.html "Unity Documentation - Installing from a Git URL"), and paste the following URL:
+```
+https://github.com/aruizrab/codetox-for-unity.git
+```
+
 ## Coroutine Builder
 Coroutine Builder let's you create Unity coroutines on the go without the need to create ```IEnumerator``` methods and calling ```StartCoroutine()```
 
@@ -47,6 +53,35 @@ this.Coroutine().
     WaitForSeconds(1f / fireRate).
     While(() => isShooting).
     Run();
+```
+
+#### Call a method, wait for a condition to be met, and call another method
+```csharp
+this.Coroutine().
+    Invoke(() => Debug.Log("Do something")).
+    WaitUntil(() => someCondition).
+    Invoke(() => Debug.Log("Do something else")).
+    Run();
+```
+
+#### Call a method, wait while a condition is met, and call another method
+```csharp
+this.Coroutine().
+    Invoke(() => Debug.Log("Do something")).
+    WaitWhile(() => someCondition).
+    Invoke(() => Debug.Log("Do something else")).
+    Run();
+```
+
+#### Keep a reference of your created coroutine
+```csharp
+var myCoroutine = this.Coroutine().
+    Invoke(() => Debug.Log("Hello")).
+    WaitForSeconds(1f).
+    While(() => true);
+    
+myCoroutine.Run();
+myCoroutine.Cancel();
 ```
 
 ### How does it work?
