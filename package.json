@@ -1,6 +1,6 @@
 {
   "name": "com.aruizrab.codetoxforunity",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "displayName": "Codetox for Unity",
   "description": "Codetox is a general purpose script library that makes your life easier.",
   "unity": "2021.2",
