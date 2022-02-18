@@ -12,4 +12,4 @@ In every Unity project I work on I end up developing some functionalities to mak
 
 ## Features
 * [MonoBehaviour extended functionalities](../../wiki/MonoBehaviour-extended-functionalities)
-* Coroutine Builder
+* [Coroutine Builder](../../WIKI/Coroutine-Builder)
