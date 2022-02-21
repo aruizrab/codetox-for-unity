@@ -9,11 +9,11 @@ namespace Codetox.Core
 {
     public class CoroutineBuilder : MonoBehaviour
     {
-        private readonly Queue<ExecutionStep> _sequence = new();
         private readonly WaitForEndOfFrame _waitForEndOfFrame = new();
         private readonly WaitForFixedUpdate _waitForFixedUpdate = new();
         private Coroutine _coroutine;
         private bool _destroyOnFinish = true, _cancelOnDisable = true;
+        private List<ExecutionStep> _steps = new();
 
         public bool IsRunning { get; private set; }
 
@@ -25,54 +25,54 @@ namespace Codetox.Core
         public CoroutineBuilder Invoke([NotNull] Action action)
         {
             if (action == null) throw new ArgumentNullException(nameof(action));
-            _sequence.Enqueue(new ExecutionStep(StepType.Invoke, action));
+            _steps.Add(new ExecutionStep(StepType.Invoke, action));
             return this;
         }
 
         public CoroutineBuilder WaitForSeconds(float seconds)
         {
             if (seconds < 0) throw new ArgumentOutOfRangeException(nameof(seconds));
-            _sequence.Enqueue(new ExecutionStep(StepType.WaitForSeconds, seconds));
+            _steps.Add(new ExecutionStep(StepType.WaitForSeconds, seconds));
             return this;
         }
 
         public CoroutineBuilder ForTimes(int times)
         {
             if (times < 0) throw new ArgumentOutOfRangeException(nameof(times));
-            _sequence.Enqueue(new ExecutionStep(StepType.ForTimes, times));
+            _steps.Add(new ExecutionStep(StepType.ForTimes, times));
             return this;
         }
 
         public CoroutineBuilder While([NotNull] Func<bool> predicate)
         {
             if (predicate == null) throw new ArgumentNullException(nameof(predicate));
-            _sequence.Enqueue(new ExecutionStep(StepType.While, predicate));
+            _steps.Add(new ExecutionStep(StepType.While, predicate));
             return this;
         }
 
         public CoroutineBuilder WaitForEndOfFrame()
         {
-            _sequence.Enqueue(new ExecutionStep(StepType.WaitForEndOfFrame));
+            _steps.Add(new ExecutionStep(StepType.WaitForEndOfFrame));
             return this;
         }
 
         public CoroutineBuilder WaitForFixedUpdate()
         {
-            _sequence.Enqueue(new ExecutionStep(StepType.WaitForFixedUpdate));
+            _steps.Add(new ExecutionStep(StepType.WaitForFixedUpdate));
             return this;
         }
 
         public CoroutineBuilder WaitUntil([NotNull] Func<bool> predicate)
         {
             if (predicate == null) throw new ArgumentNullException(nameof(predicate));
-            _sequence.Enqueue(new ExecutionStep(StepType.WaitUntil, predicate));
+            _steps.Add(new ExecutionStep(StepType.WaitUntil, predicate));
             return this;
         }
 
         public CoroutineBuilder WaitWhile([NotNull] Func<bool> predicate)
         {
             if (predicate == null) throw new ArgumentNullException(nameof(predicate));
-            _sequence.Enqueue(new ExecutionStep(StepType.WaitWhile, predicate));
+            _steps.Add(new ExecutionStep(StepType.WaitWhile, predicate));
             return this;
         }
 
@@ -85,6 +85,20 @@ namespace Codetox.Core
         public CoroutineBuilder CancelOnDisable(bool condition = true)
         {
             _cancelOnDisable = condition;
+            return this;
+        }
+
+        public CoroutineBuilder Merge(params CoroutineBuilder[] coroutines)
+        {
+            if (IsRunning) throw new Exception("Cannot merge coroutines while one of them is being executed.");
+            foreach (var coroutine in coroutines)
+            {
+                if (coroutine.IsRunning)
+                    throw new Exception("Cannot merge coroutines while one of them is being executed.");
+                _steps.AddRange(coroutine._steps);
+            }
+
+            for (var i = coroutines.Length - 1; i >= 0; i--) Destroy(coroutines[i]);
             return this;
         }
 
@@ -105,6 +119,17 @@ namespace Codetox.Core
             if (_destroyOnFinish) Destroy(this);
         }
 
+        public CoroutineBuilder Clone()
+        {
+            var clone = this.Coroutine();
+
+            clone._steps = new List<ExecutionStep>(_steps);
+            clone._cancelOnDisable = _cancelOnDisable;
+            clone._destroyOnFinish = _destroyOnFinish;
+
+            return clone;
+        }
+
         private IEnumerator RunCoroutine()
         {
             IsRunning = true;
@@ -112,9 +137,9 @@ namespace Codetox.Core
             var iterations = 0;
             var start = 0;
 
-            for (var i = 0; i < _sequence.Count; i++)
+            for (var i = 0; i < _steps.Count; i++)
             {
-                var step = _sequence.ElementAt(i);
+                var step = _steps.ElementAt(i);
 
                 switch (step.Type)
                 {
