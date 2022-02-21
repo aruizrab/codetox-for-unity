@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Codetox.Core
@@ -9,13 +10,10 @@ namespace Codetox.Core
     public class CoroutineBuilder : MonoBehaviour
     {
         private readonly Queue<ExecutionStep> _sequence = new();
+        private readonly WaitForEndOfFrame _waitForEndOfFrame = new();
+        private readonly WaitForFixedUpdate _waitForFixedUpdate = new();
         private Coroutine _coroutine;
-        private bool _destroyOnFinish, _cancelOnDisable;
-        private WaitForEndOfFrame _waitForEndOfFrame;
-        private WaitForFixedUpdate _waitForFixedUpdate;
-        private WaitForSeconds _waitForSeconds;
-        private WaitUntil _waitUntil;
-        private WaitWhile _waitWhile;
+        private bool _destroyOnFinish = true, _cancelOnDisable = true;
 
         public bool IsRunning { get; private set; }
 
@@ -24,55 +22,56 @@ namespace Codetox.Core
             if (_cancelOnDisable) Cancel();
         }
 
-        public CoroutineBuilder Invoke(Action action)
+        public CoroutineBuilder Invoke([NotNull] Action action)
         {
+            if (action == null) throw new ArgumentNullException(nameof(action));
             _sequence.Enqueue(new ExecutionStep(StepType.Invoke, action));
             return this;
         }
 
         public CoroutineBuilder WaitForSeconds(float seconds)
         {
-            _waitForSeconds = new WaitForSeconds(seconds);
+            if (seconds < 0) throw new ArgumentOutOfRangeException(nameof(seconds));
             _sequence.Enqueue(new ExecutionStep(StepType.WaitForSeconds, seconds));
             return this;
         }
 
         public CoroutineBuilder ForTimes(int times)
         {
+            if (times < 0) throw new ArgumentOutOfRangeException(nameof(times));
             _sequence.Enqueue(new ExecutionStep(StepType.ForTimes, times));
             return this;
         }
 
-        public CoroutineBuilder While(Func<bool> predicate)
+        public CoroutineBuilder While([NotNull] Func<bool> predicate)
         {
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
             _sequence.Enqueue(new ExecutionStep(StepType.While, predicate));
             return this;
         }
 
         public CoroutineBuilder WaitForEndOfFrame()
         {
-            _waitForEndOfFrame = new WaitForEndOfFrame();
             _sequence.Enqueue(new ExecutionStep(StepType.WaitForEndOfFrame));
             return this;
         }
 
         public CoroutineBuilder WaitForFixedUpdate()
         {
-            _waitForFixedUpdate = new WaitForFixedUpdate();
             _sequence.Enqueue(new ExecutionStep(StepType.WaitForFixedUpdate));
             return this;
         }
 
-        public CoroutineBuilder WaitUntil(Func<bool> predicate)
+        public CoroutineBuilder WaitUntil([NotNull] Func<bool> predicate)
         {
-            _waitUntil = new WaitUntil(predicate);
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
             _sequence.Enqueue(new ExecutionStep(StepType.WaitUntil, predicate));
             return this;
         }
 
-        public CoroutineBuilder WaitWhile(Func<bool> predicate)
+        public CoroutineBuilder WaitWhile([NotNull] Func<bool> predicate)
         {
-            _waitWhile = new WaitWhile(predicate);
+            if (predicate == null) throw new ArgumentNullException(nameof(predicate));
             _sequence.Enqueue(new ExecutionStep(StepType.WaitWhile, predicate));
             return this;
         }
@@ -123,19 +122,19 @@ namespace Codetox.Core
                         (step.Value as Action)?.Invoke();
                         break;
                     case StepType.WaitForSeconds:
-                        yield return StartCoroutine(RunWaitForSeconds(step.Value is float value ? value : 0));
+                        yield return new WaitForSeconds((float) step.Value);
                         break;
                     case StepType.WaitForEndOfFrame:
-                        yield return StartCoroutine(RunWaitForEndOfFrame());
+                        yield return _waitForEndOfFrame;
                         break;
                     case StepType.WaitForFixedUpdate:
-                        yield return StartCoroutine(RunWaitForFixedUpdate());
+                        yield return _waitForFixedUpdate;
                         break;
                     case StepType.WaitUntil:
-                        yield return StartCoroutine(RunWaitUntil(step.Value as Func<bool>));
+                        yield return new WaitUntil(step.Value as Func<bool>);
                         break;
                     case StepType.WaitWhile:
-                        yield return StartCoroutine(RunWaitWhile(step.Value as Func<bool>));
+                        yield return new WaitWhile(step.Value as Func<bool>);
                         break;
                     case StepType.ForTimes when iterations < (int) step.Value - 1:
                         i = start - 1;
@@ -160,31 +159,6 @@ namespace Codetox.Core
 
             IsRunning = false;
             if (_destroyOnFinish) Destroy(this);
-        }
-
-        private IEnumerator RunWaitForSeconds(float seconds)
-        {
-            yield return _waitForSeconds;
-        }
-
-        private IEnumerator RunWaitForEndOfFrame()
-        {
-            yield return _waitForEndOfFrame;
-        }
-
-        private IEnumerator RunWaitForFixedUpdate()
-        {
-            yield return _waitForFixedUpdate;
-        }
-
-        private IEnumerator RunWaitUntil(Func<bool> predicate)
-        {
-            yield return _waitUntil;
-        }
-
-        private IEnumerator RunWaitWhile(Func<bool> predicate)
-        {
-            yield return _waitWhile;
         }
 
         private enum StepType
