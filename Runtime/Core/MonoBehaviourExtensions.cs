@@ -254,8 +254,12 @@ namespace Codetox.Core
         public static CoroutineBuilder Coroutine(this MonoBehaviour mono, bool destroyOnFinish = true,
             bool cancelOnDisable = true)
         {
-            return mono.gameObject.AddComponent<CoroutineBuilder>().DestroyOnFinish(destroyOnFinish)
-                .CancelOnDisable(cancelOnDisable);
+            var coroutineBuilder = mono.gameObject.
+                AddComponent<CoroutineBuilder>().
+                DestroyOnFinish(destroyOnFinish).
+                CancelOnDisable(cancelOnDisable);
+            coroutineBuilder.hideFlags = HideFlags.HideInInspector;
+            return coroutineBuilder;
         }
     }
 }
