@@ -1,4 +1,5 @@
 # Codetox for Unity
+![GitHub package.json dynamic](https://img.shields.io/github/package-json/unity/aruizrab/codetox-for-unity?logo=unity)
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aruizrab/codetox-for-unity)
 ![GitHub](https://img.shields.io/github/license/aruizrab/codetox-for-unity?label=license)
 
