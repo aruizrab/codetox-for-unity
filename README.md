@@ -1,9 +1,25 @@
-# Codetox for Unity
-[![GitHub package.json dynamic](https://img.shields.io/github/package-json/unity/aruizrab/codetox-for-unity?logo=unity)](https://unity3d.com/get-unity/download/archive)
-[![GitHub release (latest by date)](https://img.shields.io/github/v/release/aruizrab/codetox-for-unity)](https://github.com/aruizrab/codetox-for-unity/releases/latest)
-[![GitHub](https://img.shields.io/github/license/aruizrab/codetox-for-unity?label=license)](https://github.com/aruizrab/codetox-for-unity/blob/main/LICENSE.md)
-
-Codetox is a general purpose script library to make your life easier when working on Unity projects.
+<div align="center">
+  <a href="https://github.com/aruizrab/codetox-for-unity">
+    <img src="https://user-images.githubusercontent.com/68024691/155190636-fe422e29-7998-418a-afd0-45c7a6d5d61a.png" alt="Logo">
+  </a>
+  <br>
+  <br>
+  <a href="https://unity3d.com/get-unity/download/archive">
+    <img src="https://img.shields.io/github/package-json/unity/aruizrab/codetox-for-unity?logo=unity" alt="Unity version">
+  </a>
+  <a href="https://github.com/aruizrab/codetox-for-unity/releases/latest">
+    <img src="https://img.shields.io/github/v/release/aruizrab/codetox-for-unity" alt="Release (latest by date)">
+  </a>
+  <a href="https://github.com/aruizrab/codetox-for-unity/blob/main/LICENSE.md">
+    <img src="https://img.shields.io/github/license/aruizrab/codetox-for-unity?label=license" alt="License">
+  </a>
+  <br>
+  <br>
+  <p align="center">
+    Codetox is a general purpose script library to make your life easier when working on Unity projects.
+  </p>
+  <a href="https://github.com/aruizrab/codetox-for-unity/wiki"><strong>Explore the wiki »</strong></a>
+</div>
 
 ## Getting started
 To start using **Codetox** in your Unity project go to your package manager, click on [add package from git URL](https://docs.unity3d.com/2021.2/Documentation/Manual/upm-ui-giturl.html "Unity Documentation - Installing from a Git URL"), and paste the following URL:
