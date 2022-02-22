@@ -90,11 +90,11 @@ namespace Codetox.Core
 
         public CoroutineBuilder Merge(params CoroutineBuilder[] coroutines)
         {
-            if (IsRunning) throw new Exception("Cannot merge coroutines while one of them is being executed.");
+            if (IsRunning) throw new Exception("Cannot merge coroutines while one of them is running.");
             foreach (var coroutine in coroutines)
             {
                 if (coroutine.IsRunning)
-                    throw new Exception("Cannot merge coroutines while one of them is being executed.");
+                    throw new Exception("Cannot merge coroutines while one of them is running.");
                 _steps.AddRange(coroutine._steps);
             }
 

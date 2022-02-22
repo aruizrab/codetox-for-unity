@@ -1,3 +1,5 @@
+using System;
+using JetBrains.Annotations;
 using UnityEngine;
 
 namespace Codetox.Core
@@ -36,8 +38,9 @@ namespace Codetox.Core
         ///         documentation for more
         ///     </a>
         /// </footer>
-        public static Vector3 VectorTo(this MonoBehaviour mono, Transform transform)
+        public static Vector3 VectorTo(this MonoBehaviour mono, [NotNull] Transform transform)
         {
+            if (transform == null) throw new ArgumentNullException(nameof(transform));
             return mono.VectorTo(transform.position);
         }
 
@@ -50,8 +53,9 @@ namespace Codetox.Core
         ///         documentation for more
         ///     </a>
         /// </footer>
-        public static Vector3 VectorTo(this MonoBehaviour mono, GameObject gameObject)
+        public static Vector3 VectorTo(this MonoBehaviour mono, [NotNull] GameObject gameObject)
         {
+            if (gameObject == null) throw new ArgumentNullException(nameof(gameObject));
             return mono.VectorTo(gameObject.transform);
         }
 
@@ -78,8 +82,9 @@ namespace Codetox.Core
         ///         documentation for more
         ///     </a>
         /// </footer>
-        public static Vector3 VectorFrom(this MonoBehaviour mono, Transform transform)
+        public static Vector3 VectorFrom(this MonoBehaviour mono, [NotNull] Transform transform)
         {
+            if (transform == null) throw new ArgumentNullException(nameof(transform));
             return mono.VectorFrom(transform.position);
         }
 
@@ -92,8 +97,9 @@ namespace Codetox.Core
         ///         documentation for more
         ///     </a>
         /// </footer>
-        public static Vector3 VectorFrom(this MonoBehaviour mono, GameObject gameObject)
+        public static Vector3 VectorFrom(this MonoBehaviour mono, [NotNull] GameObject gameObject)
         {
+            if (gameObject == null) throw new ArgumentNullException(nameof(gameObject));
             return mono.VectorFrom(gameObject.transform);
         }
 
@@ -120,8 +126,9 @@ namespace Codetox.Core
         ///         documentation for more
         ///     </a>
         /// </footer>
-        public static Vector3 DirectionTo(this MonoBehaviour mono, Transform transform)
+        public static Vector3 DirectionTo(this MonoBehaviour mono, [NotNull] Transform transform)
         {
+            if (transform == null) throw new ArgumentNullException(nameof(transform));
             return mono.DirectionTo(transform.position);
         }
 
@@ -134,8 +141,9 @@ namespace Codetox.Core
         ///         documentation for more
         ///     </a>
         /// </footer>
-        public static Vector3 DirectionTo(this MonoBehaviour mono, GameObject gameObject)
+        public static Vector3 DirectionTo(this MonoBehaviour mono, [NotNull] GameObject gameObject)
         {
+            if (gameObject == null) throw new ArgumentNullException(nameof(gameObject));
             return mono.DirectionTo(gameObject.transform);
         }
 
@@ -162,8 +170,9 @@ namespace Codetox.Core
         ///         documentation for more
         ///     </a>
         /// </footer>
-        public static Vector3 DirectionFrom(this MonoBehaviour mono, Transform transform)
+        public static Vector3 DirectionFrom(this MonoBehaviour mono, [NotNull] Transform transform)
         {
+            if (transform == null) throw new ArgumentNullException(nameof(transform));
             return mono.DirectionFrom(transform.position);
         }
 
@@ -176,11 +185,12 @@ namespace Codetox.Core
         ///         documentation for more
         ///     </a>
         /// </footer>
-        public static Vector3 DirectionFrom(this MonoBehaviour mono, GameObject gameObject)
+        public static Vector3 DirectionFrom(this MonoBehaviour mono, [NotNull] GameObject gameObject)
         {
+            if (gameObject == null) throw new ArgumentNullException(nameof(gameObject));
             return mono.DirectionFrom(gameObject.transform);
         }
-        
+
         /// <summary>
         ///     Returns a float representing the distance between this game object and a point in space.
         /// </summary>
@@ -204,8 +214,9 @@ namespace Codetox.Core
         ///         documentation for more
         ///     </a>
         /// </footer>
-        public static float DistanceTo(this MonoBehaviour mono, Transform transform)
+        public static float DistanceTo(this MonoBehaviour mono, [NotNull] Transform transform)
         {
+            if (transform == null) throw new ArgumentNullException(nameof(transform));
             return mono.DistanceTo(transform.position);
         }
 
@@ -218,17 +229,19 @@ namespace Codetox.Core
         ///         documentation for more
         ///     </a>
         /// </footer>
-        public static float DistanceTo(this MonoBehaviour mono, GameObject gameObject)
+        public static float DistanceTo(this MonoBehaviour mono, [NotNull] GameObject gameObject)
         {
+            if (gameObject == null) throw new ArgumentNullException(nameof(gameObject));
             return mono.DistanceTo(gameObject.transform);
         }
-        
+
         /// <summary>
         ///     Returns <c>true</c> if the specified <c>layer</c> is included in the specified <c>layerMask</c>, <c>false</c>
         ///     otherwise.
         /// </summary>
         /// <footer>
-        ///     <a href="https://github.com/aruizrab/codetox-for-unity/wiki/MonoBehaviour-extended-functionalities#islayerinlayermask">
+        ///     <a
+        ///         href="https://github.com/aruizrab/codetox-for-unity/wiki/MonoBehaviour-extended-functionalities#islayerinlayermask">
         ///         Check the
         ///         documentation for more
         ///     </a>
@@ -254,10 +267,8 @@ namespace Codetox.Core
         public static CoroutineBuilder Coroutine(this MonoBehaviour mono, bool destroyOnFinish = true,
             bool cancelOnDisable = true)
         {
-            var coroutineBuilder = mono.gameObject.
-                AddComponent<CoroutineBuilder>().
-                DestroyOnFinish(destroyOnFinish).
-                CancelOnDisable(cancelOnDisable);
+            var coroutineBuilder = mono.gameObject.AddComponent<CoroutineBuilder>().DestroyOnFinish(destroyOnFinish)
+                .CancelOnDisable(cancelOnDisable);
             coroutineBuilder.hideFlags = HideFlags.HideInInspector;
             return coroutineBuilder;
         }
