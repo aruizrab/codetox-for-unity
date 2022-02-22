@@ -1,5 +1,6 @@
 # Codetox for Unity
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/aruizrab/codetox-for-unity)
+![GitHub](https://img.shields.io/github/license/aruizrab/codetox-for-unity?label=license)
 
 Codetox is a general purpose script library to make your life easier when working on Unity projects.
 
