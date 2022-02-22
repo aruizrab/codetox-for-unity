@@ -11,5 +11,5 @@ https://github.com/aruizrab/codetox-for-unity.git
 In every Unity project I work on I end up developing some functionalities to make the developing process easier. Codetox aims to gather all those functionalities in a single Unity package so I don't have to go through all my projects looking for *that one script* I made to use it somewhere else, and hopefully it will also be useful to any other Unity developers that stumble upon this repository :D
 
 ## Features
-* [MonoBehaviour extended functionalities](../../wiki/MonoBehaviour-extended-functionalities)
+* [MonoBehaviour extension methods](../../wiki/MonoBehaviour-extension-methods)
 * [Coroutine Builder](../../wiki/Coroutine-Builder)
