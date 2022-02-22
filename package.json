@@ -8,5 +8,10 @@
     "name": "Alex Ruiz",
     "email": "a.ruiz.rabasseda@gmail.com",
     "url": "https://github.com/aruizrab"
-  }
+  },
+  "changelogUrl": "https://github.com/aruizrab/codetox-for-unity/blob/main/CHANGELOG.md",
+  "documentationUrl": "https://github.com/aruizrab/codetox-for-unity/wiki",
+  "keywords": ["script", "scripts", "library", "script library", "functions", "coroutine", "coroutines"],
+  "license": "MIT",
+  "licensesUrl": "https://github.com/aruizrab/codetox-for-unity/blob/main/LICENSE"
 }
