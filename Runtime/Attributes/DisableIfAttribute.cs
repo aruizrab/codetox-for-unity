@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Codetox.Attributes
 {
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
-    public class DisableIfAttribute: PropertyAttribute
+    public class DisableIfAttribute : PropertyAttribute
     {
         public readonly ComparisonType ComparisonType;
         public readonly string Name;
