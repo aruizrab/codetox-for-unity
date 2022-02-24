@@ -6,8 +6,8 @@ using UnityEngine;
 
 namespace Codetox.Editor.Attributes
 {
-    [CustomPropertyDrawer(typeof(ShowIfAnyMatchAttribute))]
-    public class ShowIfAnyMatchPropertyDrawer : PropertyDrawer
+    [CustomPropertyDrawer(typeof(ShowIfMatchAttribute))]
+    public class ShowIfMatchPropertyDrawer : PropertyDrawer
     {
         public override void OnGUI(Rect position, SerializedProperty property,
             GUIContent label)
@@ -23,7 +23,7 @@ namespace Codetox.Editor.Attributes
 
         private bool Show(SerializedProperty property)
         {
-            var showIfMatch = (ShowIfAnyMatchAttribute) attribute;
+            var showIfMatch = (ShowIfMatchAttribute) attribute;
             var path = property.propertyPath.Contains(".")
                 ? Path.ChangeExtension(property.propertyPath, showIfMatch.Name)
                 : showIfMatch.Name;
