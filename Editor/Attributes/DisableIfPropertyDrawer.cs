@@ -13,7 +13,7 @@ namespace Codetox.Editor.Attributes
             GUIContent label)
         {
             var guiState = GUI.enabled;
-            GUI.enabled = Disable(property);
+            GUI.enabled = !Disable(property);
             EditorGUI.PropertyField(position, property, label, true);
             GUI.enabled = guiState;
         }
