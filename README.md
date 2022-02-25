@@ -33,3 +33,4 @@ In every Unity project I work on I end up developing some functionalities to mak
 ## Features
 * [MonoBehaviour extension methods](../../wiki/MonoBehaviour-extension-methods)
 * [Coroutine Builder](../../wiki/Coroutine-Builder)
+* [Attributes](../../wiki/Attributes)
