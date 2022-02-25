@@ -3,6 +3,9 @@ using UnityEngine;
 
 namespace Codetox.Attributes
 {
+    /// <summary>
+    /// Hides property if the specified comparison between the value of the specified field and the given value evaluates to true.
+    /// </summary>
     [AttributeUsage(AttributeTargets.Property | AttributeTargets.Field)]
     public class HideIfAttribute : PropertyAttribute
     {
