@@ -5,6 +5,7 @@ All notable changes to this project will be documented in this file.
 ### Added
 - Disabled attribute
 - DisableIf attribute
+- DisableIfMatch attribute
 - ShowIf attribute
 - ShowIfMatch attribute
 - HideIf attribute
