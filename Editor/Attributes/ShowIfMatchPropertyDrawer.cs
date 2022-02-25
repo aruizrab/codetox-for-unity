@@ -28,13 +28,13 @@ namespace Codetox.Editor.Attributes
                 ? Path.ChangeExtension(property.propertyPath, showIfMatch.Name)
                 : showIfMatch.Name;
             var serializedProperty = property.serializedObject.FindProperty(path);
-            
+
             if (serializedProperty == null)
             {
                 Debug.LogError("Cannot find property with name: " + path);
                 return true;
             }
-            
+
             var targetObject = serializedProperty.serializedObject.targetObject;
             var field = targetObject.GetType().GetField(serializedProperty.propertyPath);
             var value = field.GetValue(targetObject);

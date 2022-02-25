@@ -1,4 +1,6 @@
 {
-	"name": "Codetox.Editor",
-	"references": ["Codetox"]
+  "name": "Codetox.Editor",
+  "references": [
+    "Codetox"
+  ]
 }
