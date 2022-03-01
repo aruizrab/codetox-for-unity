@@ -3,7 +3,7 @@ All notable changes to this project will be documented in this file.
 
 ## [1.1.1] - 2022-01-03
 ### Fixed
-- Building projects with Codetox no longer fail.
+- Assembly Definitions
 
 ## [1.1.0] - 2022-02-25
 ### Added
