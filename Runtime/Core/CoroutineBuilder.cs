@@ -7,8 +7,6 @@ using UnityEngine;
 
 namespace Codetox.Core
 {
-    // TODO Add class description for CoroutineBuilder class in CoroutineBuilder.cs
-    // labels: documentation
     public class CoroutineBuilder : MonoBehaviour
     {
         private readonly WaitForEndOfFrame _waitForEndOfFrame = new();
