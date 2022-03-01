@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Codetox.Core
 {
-    // TODO: Add CoroutineBuilder type description
+    // TODO [$621e409803c5120009e71fe7]: Add CoroutineBuilder type description
     // `CoroutineBuilder` class in CoroutineBuilder.cs lacks description.
     public class CoroutineBuilder : MonoBehaviour
     {
