@@ -1,12 +1,8 @@
 {
-    "name": "Codetox.Editor.Tests",
-    "rootNamespace": "",
+    "name": "com.aruizrab.codetox.Editor",
+    "rootNamespace": "Codetox.Editor",
     "references": [
-        "Codetox.Editor",
-        "Codetox"
-    ],
-    "optionalUnityReferences": [
-        "TestAssemblies"
+        "com.aruizrab.codetox"
     ],
     "includePlatforms": [
         "Editor"

@@ -1,12 +1,7 @@
 {
-    "name": "Codetox.Tests",
-    "rootNamespace": "",
-    "references": [
-        "Codetox"
-    ],
-    "optionalUnityReferences": [
-        "TestAssemblies"
-    ],
+    "name": "com.aruizrab.codetox",
+    "rootNamespace": "Codetox",
+    "references": [],
     "includePlatforms": [],
     "excludePlatforms": [],
     "allowUnsafeCode": false,
