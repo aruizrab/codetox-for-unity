@@ -10,11 +10,11 @@ namespace Codetox.Core
     // TODO [#6]: Add documentation to CoroutineBuilder class
     public class CoroutineBuilder : MonoBehaviour
     {
-        private readonly WaitForEndOfFrame _waitForEndOfFrame = new();
-        private readonly WaitForFixedUpdate _waitForFixedUpdate = new();
+        private readonly WaitForEndOfFrame _waitForEndOfFrame = new WaitForEndOfFrame();
+        private readonly WaitForFixedUpdate _waitForFixedUpdate = new WaitForFixedUpdate();
         private Coroutine _coroutine;
         private bool _destroyOnFinish = true, _cancelOnDisable = true;
-        private List<ExecutionStep> _steps = new();
+        private List<ExecutionStep> _steps = new List<ExecutionStep>();
 
         // TODO [#7]: Add documentation to CoroutineBuilder.IsRunning field
         public bool IsRunning { get; private set; }
