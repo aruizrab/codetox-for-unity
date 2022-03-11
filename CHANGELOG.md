@@ -1,7 +1,7 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [1.1.2] - 2022-11-03
+## [1.2.0] - 2022-11-03
 ### Added
 - Compatibility with Unity 2020.3
 
