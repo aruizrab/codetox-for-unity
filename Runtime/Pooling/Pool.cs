@@ -50,7 +50,7 @@ namespace Codetox.Pooling
         protected Pool([NotNull] Func<T> createObject, Action<T> onGetObject = null, Action<T> onReturnObject = null,
             Action<T> onRemoveObject = null, int capacity = 10)
         {
-            if (capacity < 0) throw new ArgumentOutOfRangeException(nameof(capacity));
+            if (capacity <= 0) throw new ArgumentOutOfRangeException(nameof(capacity));
             CreateObject = createObject ?? throw new ArgumentNullException(nameof(createObject));
             OnGetObject = onGetObject;
             OnReturnObject = onReturnObject;
