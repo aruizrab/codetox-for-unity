@@ -1,6 +1,6 @@
 {
     "name": "com.aruizrab.codetox.Tests",
-    "rootNamespace": "",
+    "rootNamespace": "Codetox.Tests",
     "references": [
         "UnityEngine.TestRunner",
         "com.aruizrab.codetox"
