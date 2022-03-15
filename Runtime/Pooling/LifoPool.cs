@@ -46,6 +46,7 @@ namespace Codetox.Pooling
         /// <inheritdoc />
         public override void Return(T obj)
         {
+            if (obj == null) throw new ArgumentNullException(nameof(obj));
             if (IsFull)
             {
                 OnRemoveObject?.Invoke(obj);
