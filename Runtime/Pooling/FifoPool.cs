@@ -26,8 +26,7 @@ namespace Codetox.Pooling
             _array = new T[Capacity];
             for (var i = 0; i < Capacity; i++) _array[i] = CreateObject();
 
-            _firstIndex = 0;
-            _lastIndex = Capacity;
+            _firstIndex = _lastIndex = 0;
         }
 
         /// <inheritdoc />
@@ -40,6 +39,7 @@ namespace Codetox.Pooling
             }
             else
             {
+                if (IsFull) _lastIndex = _firstIndex;
                 obj = _array[_firstIndex];
                 Count--;
                 _firstIndex++;
@@ -53,6 +53,7 @@ namespace Codetox.Pooling
         /// <inheritdoc />
         public override void Return(T obj)
         {
+            if (obj == null) throw new ArgumentNullException(nameof(obj));
             if (IsFull)
             {
                 OnRemoveObject?.Invoke(obj);
@@ -63,7 +64,7 @@ namespace Codetox.Pooling
             _array[_lastIndex] = obj;
             Count++;
             _lastIndex++;
-            if (_lastIndex >= Capacity) _lastIndex = 0;
+            if (_lastIndex >= Capacity) _firstIndex = 0;
         }
 
         /// <inheritdoc />
