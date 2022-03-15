@@ -56,14 +56,13 @@ namespace Codetox.Pooling
             OnReturnObject = onReturnObject;
             OnRemoveObject = onRemoveObject;
             Capacity = capacity;
-            Count = capacity;
         }
 
         /// <inheritdoc />
         public int Capacity { get; protected set; }
 
         /// <inheritdoc />
-        public int Count { get; protected set; }
+        public abstract int Count { get; }
 
         /// <inheritdoc />
         public bool IsEmpty => Count == 0;

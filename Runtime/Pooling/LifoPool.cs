@@ -12,6 +12,7 @@ namespace Codetox.Pooling
     public class LifoPool<T> : Pool<T>
     {
         private readonly T[] _array;
+        private int _count;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="LifoPool{T}" /> class.
@@ -21,9 +22,13 @@ namespace Codetox.Pooling
             Action<T> onRemoveObject = null, int capacity = 10) : base(createObject, onGetObject, onReturnObject,
             onRemoveObject, capacity)
         {
-            _array = new T[Capacity];
-            for (var i = 0; i < Capacity; i++) _array[i] = CreateObject();
+            _count = Capacity;
+            _array = new T[_count];
+            for (var i = 0; i < _count; i++) _array[i] = CreateObject();
         }
+
+        /// <inheritdoc />
+        public override int Count => _count;
 
         /// <inheritdoc />
         public override T Get()
@@ -35,8 +40,8 @@ namespace Codetox.Pooling
             }
             else
             {
-                Count--;
-                obj = _array[Count];
+                _count--;
+                obj = _array[_count];
             }
 
             OnGetObject?.Invoke(obj);
@@ -54,29 +59,29 @@ namespace Codetox.Pooling
             }
 
             OnReturnObject?.Invoke(obj);
-            _array[Count] = obj;
-            Count++;
+            _array[_count] = obj;
+            _count++;
         }
 
         /// <inheritdoc />
         public override void Clear()
         {
             ForEach(obj => OnRemoveObject?.Invoke(obj));
-            Count = 0;
+            _count = 0;
         }
 
         /// <inheritdoc />
         public override void ForEach(Action<T> action)
         {
             if (action == null) throw new ArgumentNullException(nameof(action));
-            for (var i = 0; i < Count; i++) action(_array[i]);
+            for (var i = 0; i < _count; i++) action(_array[i]);
         }
 
         /// <inheritdoc />
         public override bool Contains(T obj)
         {
             if (obj == null) throw new ArgumentNullException(nameof(obj));
-            for (var i = 0; i < Count; i++)
+            for (var i = 0; i < _count; i++)
                 if (_array[i].Equals(obj))
                     return true;
             return false;

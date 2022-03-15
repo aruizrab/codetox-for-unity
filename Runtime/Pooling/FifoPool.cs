@@ -14,6 +14,7 @@ namespace Codetox.Pooling
         private readonly T[] _array;
         private int _firstIndex;
         private int _lastIndex;
+        private int _count;
 
         /// <summary>
         ///     Initializes a new instance of the <see cref="FifoPool{T}" /> class.
@@ -23,11 +24,14 @@ namespace Codetox.Pooling
             Action<T> onRemoveObject = null, int capacity = 10) : base(createObject, onGetObject, onReturnObject,
             onRemoveObject, capacity)
         {
-            _array = new T[Capacity];
-            for (var i = 0; i < Capacity; i++) _array[i] = CreateObject();
+            _count = Capacity;
+            _array = new T[_count];
+            for (var i = 0; i < _count; i++) _array[i] = CreateObject();
 
             _firstIndex = _lastIndex = 0;
         }
+
+        public override int Count => _count;
 
         /// <inheritdoc />
         public override T Get()
@@ -41,7 +45,7 @@ namespace Codetox.Pooling
             {
                 if (IsFull) _lastIndex = _firstIndex;
                 obj = _array[_firstIndex];
-                Count--;
+                _count--;
                 _firstIndex++;
                 if (_firstIndex >= Capacity) _firstIndex = 0;
             }
@@ -62,7 +66,7 @@ namespace Codetox.Pooling
 
             OnReturnObject?.Invoke(obj);
             _array[_lastIndex] = obj;
-            Count++;
+            _count++;
             _lastIndex++;
             if (_lastIndex >= Capacity) _firstIndex = 0;
         }
@@ -71,7 +75,7 @@ namespace Codetox.Pooling
         public override void Clear()
         {
             ForEach(obj => OnRemoveObject?.Invoke(obj));
-            Count = _firstIndex = _lastIndex = 0;
+            _count = _firstIndex = _lastIndex = 0;
         }
 
         /// <inheritdoc />
@@ -80,9 +84,10 @@ namespace Codetox.Pooling
             if (action == null) throw new ArgumentNullException(nameof(action));
             var iteration = 0;
             var index = _firstIndex;
-            while (iteration < Count)
+            var capacity = Capacity;
+            while (iteration < _count)
             {
-                if (index >= Capacity) index = 0;
+                if (index >= capacity) index = 0;
                 action(_array[index]);
                 iteration++;
                 index++;
@@ -95,9 +100,10 @@ namespace Codetox.Pooling
             if (obj == null) throw new ArgumentNullException(nameof(obj));
             var iteration = 0;
             var index = _firstIndex;
-            while (iteration < Count)
+            var capacity = Capacity;
+            while (iteration < _count)
             {
-                if (index >= Capacity) index = 0;
+                if (index >= capacity) index = 0;
                 if (_array[index].Equals(obj)) return true;
                 iteration++;
                 index++;
