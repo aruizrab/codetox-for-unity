@@ -31,6 +31,7 @@ namespace Codetox.Pooling
             _firstIndex = _lastIndex = 0;
         }
 
+        /// <inheritdoc />
         public override int Count => _count;
 
         /// <inheritdoc />
