@@ -1,6 +1,13 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [1.3.0] - 2022-03-19
+### Added
+- IPool interface
+- Pool abstract class
+- FifoPool class
+- LifoPool class
+
 ## [1.2.0] - 2022-11-03
 ### Added
 - Compatibility with Unity 2020.3
