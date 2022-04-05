@@ -1,6 +1,10 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Added
+- CustomScriptableObject abstract class
+
 ## [1.3.0] - 2022-03-19
 ### Added
 - IPool interface
