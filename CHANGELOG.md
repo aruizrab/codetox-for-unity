@@ -1,9 +1,57 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [2.0.0] - 06-04-2022
 ### Added
-- CustomScriptableObject abstract class
+- CustomScriptableObject abstract scriptable object
+- Framework static class
+- EditorHelper static class
+- Variable abstract scriptable object
+- BoolVariable scriptable object
+- FloatVariable scriptable object
+- IntVariable scriptable object
+- StringVariable scriptable object
+- Vector2Variable scriptable object
+- Vector3Variable scriptable object
+- GameObjectVariable scriptable object
+- ComponentVariable scriptable object
+- ReferenceVariable scriptable object
+- VariableMenu static class
+- GameEvent abstract scriptable object
+- BoolGameEvent scriptable object
+- FloatGameEvent scriptable object
+- IntGameEvent scriptable object
+- StringGameEvent scriptable object
+- Vector2GameEvent scriptable object
+- Vector3GameEvent scriptable object
+- GameObjectGameEvent scriptable object
+- ComponentGameEvent scriptable object
+- ReferenceGameEvent scriptable object
+- VoidGameEvent scriptable object
+- GameEventMenu static class
+- GameEventListener abstract component
+- BoolGameEventListener component
+- FloatGameEventListener component
+- IntGameEventListener component
+- StringGameEventListener component
+- Vector2GameEventListener component
+- Vector3GameEventListener component
+- GameObjectGameEventListener component
+- ComponentGameEventListener component
+- ReferenceGameEventListener component
+- VoidGameEventListener component
+- GameEventListenerMenu static class
+- InputActionHandler abstract scriptable object
+- BoolInputActionHandler scriptable object
+- FloatInputActionHandler scriptable object
+- InputActionHandlerMenu static class
+- Vector2InputActionHandler scriptable object
+- Vector3InputActionHandler scriptable object
+- InputActionRebindManager scriptable object
+- InputActionRebindManagerMenu static class
+- InputActionRebindPersistenceManager scriptable object
+- InputActionRebindPersistenceManagerMenu static class
+- Dependency with Unity's InputSystem
 
 ## [1.3.0] - 2022-03-19
 ### Added
@@ -32,5 +80,5 @@ All notable changes to this project will be documented in this file.
 
 ## [1.0.0] - 2022-02-22
 ### Added
-- MonoBehaviourExtensions type with extension methods for MonoBehaviour type.
-- CoroutineBuilder type.
+- MonoBehaviourExtensions static class with extension methods for MonoBehaviour type.
+- CoroutineBuilder component.
