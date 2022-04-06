@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Codetox.Variables
 {
-    // TODO [$624dc2494a024b0008cb367c]: Add documentation to Variable.cs
+    // TODO [#24]: Add documentation to Variable.cs
     public abstract class Variable<T> : CustomScriptableObject
     {
         [SerializeField] private T value;
