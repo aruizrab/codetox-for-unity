@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Codetox
 {
-    // TODO: Add documentation to CustomScriptableObject.cs
+    // TODO [$624dc2494a024b0008cb367b]: Add documentation to CustomScriptableObject.cs
     public abstract class CustomScriptableObject : ScriptableObject
     {
         [Tooltip("Provides information about the purpose of this scriptable object.")] [SerializeField]
