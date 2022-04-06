@@ -35,3 +35,8 @@ In every Unity project I work on I end up developing some functionalities to mak
 * [Coroutine Builder](https://github.com/aruizrab/codetox-for-unity/wiki/Coroutine-Builder)
 * [Attributes](https://github.com/aruizrab/codetox-for-unity/wiki/Attributes)
 * [Pooling](https://github.com/aruizrab/codetox-for-unity/wiki/Pooling)
+* ScriptableObject variables
+* ScriptableObject events
+* InputAction handlers
+* InputAction rebinding
+* InputAction rebinding persistence
