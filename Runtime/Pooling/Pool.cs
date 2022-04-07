@@ -11,6 +11,19 @@ namespace Codetox.Pooling
     /// </typeparam>
     public abstract class Pool<T> : IPool<T>
     {
+        public static Pool<T> Create(PoolingStrategy strategy, [NotNull] Func<T> createObject, Action<T> onGetObject = null, Action<T> onReturnObject = null,
+            Action<T> onRemoveObject = null, int capacity = 10)
+        {
+            return strategy switch
+            {
+                PoolingStrategy.FirstInFirstOut => new FifoPool<T>(createObject, onGetObject, onReturnObject,
+                    onRemoveObject, capacity),
+                PoolingStrategy.LastInFirstOut => new LifoPool<T>(createObject, onGetObject, onReturnObject,
+                    onRemoveObject, capacity),
+                _ => throw new ArgumentOutOfRangeException(nameof(strategy), strategy, null)
+            };
+        }
+
         /// <summary>
         ///     The <see cref="Func{TResult}" /> delegate that creates pool objects.
         /// </summary>
