@@ -2,6 +2,7 @@
 
 namespace Codetox.Pooling
 {
+    [AddComponentMenu(Framework.MenuRoot.Pooling.GameObject)]
     public class GameObjectPool : ObjectPool<GameObject>
     {
         protected override GameObject CreateObject()

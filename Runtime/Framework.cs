@@ -6,6 +6,14 @@
         {
             public const string Path = "Codetox/";
 
+            public static class Pooling
+            {
+                public const string Path = MenuRoot.Path + "Pooling/";
+                
+                public const string GameObject = Path + "GameObject Pool";
+                public const string ParticleSystem = Path + "ParticleSystem Pool";
+            }
+
             public static class GameEvents
             {
                 public const string Path = MenuRoot.Path + "Game Events/";

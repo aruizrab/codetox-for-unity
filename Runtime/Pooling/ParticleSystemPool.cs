@@ -2,6 +2,7 @@
 
 namespace Codetox.Pooling
 {
+    [AddComponentMenu(Framework.MenuRoot.Pooling.ParticleSystem)]
     public class ParticleSystemPool : ObjectPool<ParticleSystem>
     {
         protected override ParticleSystem CreateObject()
