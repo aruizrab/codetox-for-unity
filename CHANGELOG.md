@@ -1,6 +1,11 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Added
+- GameObjectMessageExtensions static class
+- MessageScope enum
+
 ## [2.0.0] - 06-04-2022
 ### Added
 - CustomScriptableObject abstract scriptable object
