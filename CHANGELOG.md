@@ -1,14 +1,16 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [2.1.0] - 2022-04-07
 ### Added
 - GameObjectMessageExtensions static class
 - MessageScope enum
 - GameObjectExtensions static class
 - TransformExtensions static class
+- GameObjectPool component
+- ParticleSystemPool component
 
-## [2.0.0] - 06-04-2022
+## [2.0.0] - 2022-04-06
 ### Added
 - CustomScriptableObject abstract scriptable object
 - Framework static class
