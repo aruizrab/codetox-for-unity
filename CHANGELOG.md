@@ -5,6 +5,8 @@ All notable changes to this project will be documented in this file.
 ### Added
 - GameObjectMessageExtensions static class
 - MessageScope enum
+- GameObjectExtensions static class
+- TransformExtensions static class
 
 ## [2.0.0] - 06-04-2022
 ### Added
