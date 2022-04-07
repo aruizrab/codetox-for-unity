@@ -10,15 +10,17 @@ namespace Codetox.Core
         private static readonly object Lock = new object();
         protected static bool IsApplicationQuitting;
 
-        [CanBeNull]
-        public static T Instance
+        public static bool TryGetInstance(out T instance)
         {
-            get
+            if (IsApplicationQuitting)
             {
-                if (IsApplicationQuitting) return null;
-                lock (Lock)
+                instance = null;
+                return false;
+            }
+            lock (Lock)
+            {
+                if (!_instance)
                 {
-                    if (_instance) return _instance;
                     var instances = FindObjectsOfType<T>();
                     _instance = instances.Length switch
                     {
@@ -27,8 +29,9 @@ namespace Codetox.Core
                         _ => DestroyDuplicates(instances)
                     };
                     _instance.Init();
-                    return _instance;
                 }
+                instance = _instance;
+                return true;
             }
         }
 
