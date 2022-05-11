@@ -66,6 +66,8 @@
                 public const string Reference = Path + "Reference";
                 public const string List = Path + "List";
                 public const string Dictionary = Path + "Dictionary";
+                public const string Manager = Path + "Variable Manager";
+                public const string Persistence = Path + "Variable Persistence Manager";
             }
 
             public static class Input

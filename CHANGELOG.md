@@ -1,6 +1,17 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [3.0.0] - 11/05/2022
+### Added
+- BaseVariable abstract class for all Variable implementations supporting variable value persistence in builds
+- VariableManager scriptable object
+- VariablePersistenceManager component
+- Dictionary class extending built-in dictionary class and supporting serialization
+
+### Changed:
+- Variables now use GameEvents on value changed instead of C# events
+- Menu path is now under Tools/Codetox
+
 ## [2.1.0] - 2022-04-07
 ### Added
 - GameObjectMessageExtensions static class
