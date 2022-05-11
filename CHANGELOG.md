@@ -1,7 +1,7 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [3.0.0] - 11/05/2022
+## [3.0.0] - 2022-05-11
 ### Added
 - BaseVariable abstract class for all Variable implementations supporting variable value persistence in builds
 - VariableManager scriptable object
