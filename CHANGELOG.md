@@ -1,6 +1,10 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
+## [Unreleased]
+### Changed
+- Codetox menu items now appear under Tools/Codetox
+
 ## [2.1.0] - 2022-04-07
 ### Added
 - GameObjectMessageExtensions static class

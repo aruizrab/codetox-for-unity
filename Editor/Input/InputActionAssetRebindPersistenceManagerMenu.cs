@@ -7,7 +7,7 @@ namespace Codetox.Editor.Input
 {
     public static class InputActionAssetRebindPersistenceManagerMenu
     {
-        [MenuItem(Framework.MenuRoot.Input.ActionRebindPersistence.Path)]
+        [MenuItem("Tools/" + Framework.MenuRoot.Input.ActionRebindPersistence.Path)]
         public static void CreateInputActionAssetRebindPersistenceManager(MenuCommand command)
         {
             var asset = ScriptableObject.CreateInstance<InputActionAssetRebindPersistenceManager>();
