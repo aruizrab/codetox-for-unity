@@ -2,6 +2,11 @@
 All notable changes to this project will be documented in this file.
 
 ## [Unreleased]
+### Added
+- Icons for GameEvent scriptable objects
+- Icons for Variable scriptable objects
+- Icons for InputActionHandler scriptable objects
+
 ### Changed
 - Codetox menu items now appear under Tools/Codetox
 
