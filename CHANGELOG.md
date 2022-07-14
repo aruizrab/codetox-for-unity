@@ -6,6 +6,17 @@ All notable changes to this project will be documented in this file.
 - Icons for GameEvent scriptable objects
 - Icons for Variable scriptable objects
 - Icons for InputActionHandler scriptable objects
+- RuntimeSet abstract scriptable object
+- BoolRuntimeSet scriptable object
+- FloatRuntimeSet scriptable object
+- IntRuntimeSet scriptable object
+- StringRuntimeSet scriptable object
+- Vector2RuntimeSet scriptable object
+- Vector3RuntimeSet scriptable object
+- GameObjectRuntimeSet scriptable object
+- ComponentRuntimeSet scriptable object
+- ReferenceRuntimeSet scriptable object
+- RuntimeSetMenu static class
 
 ### Changed
 - Codetox menu items now appear under Tools/Codetox
