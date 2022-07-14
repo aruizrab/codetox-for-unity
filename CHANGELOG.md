@@ -17,6 +17,7 @@ All notable changes to this project will be documented in this file.
 - ComponentRuntimeSet scriptable object
 - ReferenceRuntimeSet scriptable object
 - RuntimeSetMenu static class
+- UtilityExtensions static class
 
 ### Changed
 - Codetox menu items now appear under Tools/Codetox
