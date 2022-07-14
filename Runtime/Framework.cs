@@ -100,6 +100,23 @@
                     public const string Path = Input.Path + "Action Rebind Persistence Manager";
                 }
             }
+            
+            public static class RuntimeSets
+            {
+                public const string Path = MenuRoot.Path + "Runtime Sets/";
+                
+                public const string Bool = Path + "Bool";
+                public const string Float = Path + "Float";
+                public const string Int = Path + "Int";
+                public const string String = Path + "String";
+                public const string Vector2 = Path + "Vector2";
+                public const string Vector3 = Path + "Vector3";
+                public const string GameObject = Path + "GameObject";
+                public const string Component = Path + "Component";
+                public const string Reference = Path + "Reference";
+                public const string List = Path + "List";
+                public const string Dictionary = Path + "Dictionary";
+            }
         }
         
         public static class DataTypes

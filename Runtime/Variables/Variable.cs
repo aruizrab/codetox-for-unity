@@ -24,16 +24,6 @@ namespace Codetox.Variables
             }
         }
 
-        private void Reset()
-        {
-            Value = default;
-        }
-
-        private void OnEnable()
-        {
-            Value = value;
-        }
-
         public event Action<T> OnValueChanged;
     }
 }
