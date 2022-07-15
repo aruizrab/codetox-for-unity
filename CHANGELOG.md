@@ -23,6 +23,8 @@ All notable changes to this project will be documented in this file.
 - StateMachine class
 - State class
 - ValueReference class
+- ColorVariable scriptable object
+- LayerMaskVariable scriptable object
 
 ### Changed
 - Codetox menu items now appear under Tools/Codetox

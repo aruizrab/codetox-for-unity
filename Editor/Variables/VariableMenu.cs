@@ -69,5 +69,19 @@ namespace Codetox.Editor.Variables
             var asset = ScriptableObject.CreateInstance<ReferenceVariable>();
             EditorHelper.CreateAssetInSelectedPath(asset);
         }
+
+        [MenuItem("Tools/" + Framework.MenuRoot.Variables.Color, priority = 30)]
+        public static void CreateScriptableColor(MenuCommand command)
+        {
+            var asset = ScriptableObject.CreateInstance<ColorVariable>();
+            EditorHelper.CreateAssetInSelectedPath(asset);
+        }
+
+        [MenuItem("Tools/" + Framework.MenuRoot.Variables.LayerMask, priority = 31)]
+        public static void CreateScriptableLayerMask(MenuCommand command)
+        {
+            var asset = ScriptableObject.CreateInstance<LayerMaskVariable>();
+            EditorHelper.CreateAssetInSelectedPath(asset);
+        }
     }
 }

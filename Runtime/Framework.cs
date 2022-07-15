@@ -64,6 +64,8 @@
                 public const string GameObject = Path + "GameObject";
                 public const string Component = Path + "Component";
                 public const string Reference = Path + "Reference";
+                public const string Color = Path + "Color";
+                public const string LayerMask = Path + "LayerMask";
                 public const string List = Path + "List";
                 public const string Dictionary = Path + "Dictionary";
             }
