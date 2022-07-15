@@ -26,6 +26,7 @@ All notable changes to this project will be documented in this file.
 - ColorVariable scriptable object
 - LayerMaskVariable scriptable object
 - Range struct
+- Serializable Dictionary class
 
 ### Changed
 - Codetox menu items now appear under Tools/Codetox
