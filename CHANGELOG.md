@@ -18,6 +18,10 @@ All notable changes to this project will be documented in this file.
 - ReferenceRuntimeSet scriptable object
 - RuntimeSetMenu static class
 - UtilityExtensions static class
+- StateMachine component
+- State component
+- StateMachine class
+- State class
 
 ### Changed
 - Codetox menu items now appear under Tools/Codetox
