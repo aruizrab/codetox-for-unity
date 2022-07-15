@@ -25,6 +25,7 @@ All notable changes to this project will be documented in this file.
 - ValueReference class
 - ColorVariable scriptable object
 - LayerMaskVariable scriptable object
+- Range struct
 
 ### Changed
 - Codetox menu items now appear under Tools/Codetox
