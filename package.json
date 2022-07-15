@@ -1,8 +1,8 @@
 {
   "name": "com.aruizrab.codetox",
-  "version": "2.1.0",
+  "version": "2.2.0",
   "displayName": "Codetox for Unity",
-  "description": "Codetox is a general purpose script library that makes your life easier.",
+  "description": "Codetox is a set of tools and extensions to make your life easier when developing Unity projects.",
   "unity": "2020.3",
   "author": {
     "name": "Alex Ruiz",
