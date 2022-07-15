@@ -1,7 +1,7 @@
 ﻿# Changelog
 All notable changes to this project will be documented in this file.
 
-## [Unreleased]
+## [2.2.0] - 2022-07-15
 ### Added
 - Icons for GameEvent scriptable objects
 - Icons for Variable scriptable objects
