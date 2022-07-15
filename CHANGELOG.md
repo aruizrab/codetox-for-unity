@@ -22,6 +22,7 @@ All notable changes to this project will be documented in this file.
 - State component
 - StateMachine class
 - State class
+- ValueReference class
 
 ### Changed
 - Codetox menu items now appear under Tools/Codetox
