@@ -16,7 +16,7 @@
   <br>
   <br>
   <p align="center">
-    Codetox is a general purpose script library to make your life easier when working on Unity projects.
+    Codetox is a set of tools and extensions to make your life easier when developing Unity projects.
   </p>
   <a href="https://github.com/aruizrab/codetox-for-unity/wiki"><strong>Explore the wiki »</strong></a>
 </div>
