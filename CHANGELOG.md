@@ -27,6 +27,11 @@ All notable changes to this project will be documented in this file.
 - LayerMaskVariable scriptable object
 - Range struct
 - Serializable Dictionary class
+- CollisionDetector component
+- CollisionDetector2D component
+- Billboard component
+- OptionSelector component
+- Dependency with TextMeshPro
 
 ### Changed
 - Codetox menu items now appear under Tools/Codetox
